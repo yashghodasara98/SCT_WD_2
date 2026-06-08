@@ -221,8 +221,9 @@ const calculate = (value) =>{
         if(output ==="" && specialChars.includes(value)) return;
         output+=value;
     }
-    output=eval(output.replace("%","/100"));
-    show.value=output;
+    show=eval(output.replace("%","/100"));
+    display.value=output;
+    show.innerText=show;
     display.scrollLeft = display.scrollWidth;
 
 };
