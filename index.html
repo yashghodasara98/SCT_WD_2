@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
+  <title>Document</title>
   <style>
     *{
     margin:0%;
@@ -46,6 +46,7 @@ body::after {
     border: 1px solid  #2a2a3a;
     z-index:100;
     padding:32px;
+    
 }
 
 .display{
@@ -149,11 +150,11 @@ button:hover{
     }
 
     .display{
-        max-height: 70px;
+        max-height: 90px;
     }
 
     button{
-        height: 75px ;
+        height: 78px ;
     }
 }
   </style>
@@ -223,11 +224,13 @@ const calculate = (value) =>{
     }
     display.value=output;
     display.scrollLeft = display.scrollWidth;
+    
+if(value!=="=" && output!==""){
+     show.innerText=eval(output.replace("%","/100"));;
+}
 
-};
 
-  </script>
-
-  
+}
+</script>
 </body>
 </html>
