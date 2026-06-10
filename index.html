@@ -50,7 +50,7 @@ body::after {
 }
 
 .display{
-    min-height: 130px; 
+    min-height: 150px; 
     width:100%;
     border-radius: 20px;
     background: #16161f;
@@ -139,6 +139,25 @@ button:hover{
     scrollbar-width:none;
 }
 
+#ans{
+    padding:2px 20px 2px 20px;
+    position:absolute;
+    top:135px;
+    right:40px;          /* match display padding */
+    left:28px;           /* add left boundary */
+
+    text-align:right;
+    font-size:15px;
+    color:white;
+    opacity:0.5;
+
+    white-space:nowrap;  /* keep in one line */
+    overflow-x:auto;     /* horizontal scroll */
+    overflow-y:hidden;
+
+    scrollbar-width:none;
+}
+
 #show::-webkit-scrollbar{
     display:none;
 }
@@ -164,6 +183,7 @@ button:hover{
     <div class="screen">
     <p id="show"></p>
     <input type="text" class="display">
+    <p id="ans"></p>
 </div>
     
     <div class="buttons">
@@ -200,6 +220,7 @@ const buttons=document.querySelectorAll('button');
 const specialChars= ["%","÷","*","-","+","="];
 let output="";
 let show=document.getElementById("show");
+let ans=document.getElementById("ans");
 buttons.forEach((button)=>{
     button.addEventListener("click",(e)=>calculate(e.target.dataset.value))
 })
@@ -209,10 +230,12 @@ const calculate = (value) =>{
         show.innerText=output;
         show.scrollLeft = show.scrollWidth;
         output=eval(output.replace("%","/100"));
+        ans.innerHTML="";
     }
     else if(value==="AC"){
         output="";
         show.innerText="";
+        ans.innerText="";
         show.scrollLeft = 0;
     }
     else if(value==="DEL"){
@@ -226,10 +249,8 @@ const calculate = (value) =>{
     display.scrollLeft = display.scrollWidth;
     
 if(value!=="=" && output!==""){
-     show.innerText=eval(output.replace("%","/100"));;
+     ans.innerText=eval(output.replace("%","/100"));;
 }
-
-
 }
 </script>
 </body>
