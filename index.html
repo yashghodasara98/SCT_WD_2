@@ -230,6 +230,7 @@ const calculate = (value) =>{
         show.innerText=output;
         show.scrollLeft = show.scrollWidth;
         output=eval(output.replace("%","/100"));
+        display.style.fontSize="40px";
         ans.innerHTML="";
     }
     else if(value==="AC"){
@@ -237,6 +238,7 @@ const calculate = (value) =>{
         show.innerText="";
         ans.innerText="";
         show.scrollLeft = 0;
+        display.style.fontSize="25px";
     }
     else if(value==="DEL"){
         output=output.toString().slice(0,-1);
@@ -246,6 +248,7 @@ const calculate = (value) =>{
         output+=value;
     }
     display.value=output;
+    
     display.scrollLeft = display.scrollWidth;
     
 if(value!=="=" && output!==""){
